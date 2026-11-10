@@ -1,16 +1,10 @@
-import { NextResponse, type NextRequest } from "next/server";
-import { defaultLocale } from "@/i18n";
-import routes from "@/shared/routes";
+import createMiddleware from "next-intl/middleware";
+import routing from "@/i18n";
 
-const proxy = (request: NextRequest) => {
-  const destination = request.nextUrl.clone();
-  destination.pathname = routes.home(defaultLocale);
-
-  return NextResponse.redirect(destination);
-};
+const proxy = createMiddleware(routing);
 
 export const config = {
-  matcher: ["/"],
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };
 
 export default proxy;
