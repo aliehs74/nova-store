@@ -1,7 +1,9 @@
+import Home from "@/components/templates/home";
+
 const HomePage = () => {
 
   return (
-    <main id="storefront" />
+    <Home />
   );
 };
 
