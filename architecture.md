@@ -60,3 +60,16 @@ Supported locale prefixes are `fa` and `en`; Persian is the default. Unsupported
 locales return 404. Locale page shells are generated for both languages.
 The root entry redirects to the default locale. Central route constants/builders
 live in `src/shared/routes.ts`; only implemented routes are exposed.
+
+## P2 localization
+
+`src/i18n.ts` owns next-intl routing; `src/proxy.ts` applies locale prefixes.
+Automatic browser-language detection is disabled so Persian remains the default.
+`src/requests/locale.ts` reads Next.js root params and loads only the selected
+dictionary. JSON messages live in `src/dictionary`. Server components use
+getTranslations; the client provider currently receives only languageSwitcher.
+`src/shared/navigation.ts` exposes locale-aware navigation. The language switch
+preserves the pathname, search and hash on ordinary activation.
+The Persian font is the existing Vazir Latin-digit asset from the reference
+project; English uses the system Arial/sans-serif stack. Number localization
+belongs to next-intl formatters, never to mutations of API data.
