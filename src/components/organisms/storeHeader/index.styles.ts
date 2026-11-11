@@ -7,9 +7,9 @@ export const Header = styled.header`
 
 export const Inner = styled.div`
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr) 44px;
   align-items: center;
-  gap: ${({ theme }) => theme.space.md};
+  gap: ${({ theme }) => theme.space.sm};
   max-width: ${({ theme }) => theme.contentWidth};
   margin-inline: auto;
   padding: ${({ theme }) => theme.space.md};
@@ -20,16 +20,30 @@ export const Inner = styled.div`
 `;
 
 export const Actions = styled.div`
+  display: contents;
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: ${({ theme }) => theme.space.xs};
-  @media (max-width: 479px) { grid-column: 1 / -1; justify-content: space-between; }
-  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { grid-column: 4; grid-row: 1; }
+  grid-column: 4;
+  grid-row: 1;
+  }
+`;
+
+export const Preferences = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: ${({ theme }) => theme.space.xs};
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
 `;
 
 export const Search = styled.div`
-  grid-column: 1 / -1;
+  grid-column: 1 / 3;
+  grid-row: 2;
   min-width: 0;
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { grid-column: 3; grid-row: 1; width: 100%; max-width: 270px; justify-self: center; }
 `;
@@ -56,6 +70,8 @@ export const Navigation = styled.nav<{ $open: boolean }>`
 `;
 
 export const MenuButton = styled.button`
+  grid-column: 3;
+  grid-row: 1;
   display: inline-grid;
   place-items: center;
   min-width: 44px;
@@ -70,14 +86,18 @@ export const MenuButton = styled.button`
 `;
 
 export const Cart = styled.span`
+  grid-column: 3;
+  grid-row: 2;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 44px;
   min-height: 44px;
-  border-inline-end: 1px solid ${({ theme }) => theme.colors.border};
-  margin-inline-end: ${({ theme }) => theme.space.sm};
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    border-inline-end: 1px solid ${({ theme }) => theme.colors.border};
+    margin-inline-end: ${({ theme }) => theme.space.sm};
+  }
   color: ${({ theme }) => theme.colors.text};
 `;
 

@@ -99,11 +99,6 @@ p {
   max-width: 75ch;
 }
 
-#home-products li {
-  overflow-wrap: anywhere;
-  margin-block: 0.75rem;
-}
-
 @media (prefers-reduced-motion: reduce) {
 
   *,

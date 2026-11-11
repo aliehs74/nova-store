@@ -1,4 +1,10 @@
 {
+  "products": {
+    "title": "محصولات منتخب",
+    "count": "{count, number} محصول",
+    "rating": "امتیاز {rate, number} از ۵، بر اساس {count, number} رأی",
+    "addToCart": "افزودن {title} به سبد خرید"
+  },
   "hero": {
     "title": "انتخاب هوشمندانه، خرید آسان",
     "description": "با نوا، تجربه خریدی متفاوت را تجربه کنید.",
@@ -26,6 +32,8 @@
     "dark": "فعال‌کردن تم تیره"
   },
   "common": {
+    "imageUnavailable": "تصویر موجود نیست",
+    "imageUnavailableFor": "تصویر {name} موجود نیست",
     "home": "خانه",
     "products": "محصولات",
     "categories": "دسته‌بندی‌ها",

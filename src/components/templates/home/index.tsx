@@ -5,12 +5,14 @@ import HomeProductsServer from "@/components/organisms/homeProducts/index.server
 import Hero from "@/components/organisms/home/hero";
 import CategoryProvider from "@/context/category";
 import HeaderCategories from "@/components/organisms/storeHeader/index.categories.server";
+import SearchProvider from "@/context/search";
 
 const Home = async () => {
   const common = await getTranslations("common");
 
   return (
     <CategoryProvider>
+      <SearchProvider>
       <StoreHeader>
         <Suspense fallback={<p role="status">{common("loading")}</p>}>
           <HeaderCategories />
@@ -24,6 +26,7 @@ const Home = async () => {
           </Suspense>
         </div>
       </main>
+      </SearchProvider>
     </CategoryProvider>
   );
 };

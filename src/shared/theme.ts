@@ -1,5 +1,6 @@
 const theme = {
   colors: {
+    imageSurface: "#ffffff", imageText: "#526176", rating: "#e6a700",
     heroSurface: "var(--color-hero-surface)",
     heroText: "#192b43", heroMuted: "#526176",
     background: "var(--color-background)", surface: "var(--color-surface)",
