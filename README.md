@@ -35,3 +35,20 @@ this presentation helper is not an authoritative checkout/accounting engine.
 The basic product list in P4 verifies data delivery; product cards, filters and
 search behavior remain separate later parts.
 
+## Shopping cart
+
+`src/storage/cart` creates a Zustand store per `CartProvider` instance. Adding an
+existing product increases its quantity; the header counts the sum of quantities.
+Cards announce successful additions with a short localized status message.
+
+The `nova-cart` localStorage entry uses schema version 1 and persists only product
+ID, title, price, category, image and quantity. Stored data is validated before it
+enters the store. Malformed JSON, incompatible versions, duplicate IDs and invalid
+values reset the saved cart. Methods and hydration flags are never persisted.
+
+Server rendering starts with an empty cart. The browser rehydrates after mounting,
+then enables add buttons, so early interactions cannot overwrite an unread cart.
+If localStorage is unavailable or full, the cart still works in memory, but changes
+cannot be guaranteed to survive a refresh. Cart prices are display data, not an
+authoritative checkout total. The cart page and checkout are not implemented here.
+
