@@ -7,28 +7,31 @@ export const Header = styled.header`
 
 export const Inner = styled.div`
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) 44px;
+  grid-template-columns: minmax(44px, 1fr) auto minmax(88px, 1fr);
+  direction: ltr;
+  > a { justify-self: center; }
   align-items: center;
   gap: ${({ theme }) => theme.space.sm};
   max-width: ${({ theme }) => theme.contentWidth};
   margin-inline: auto;
   padding: ${({ theme }) => theme.space.md};
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    direction: inherit;
+    > a { justify-self: start; }
     grid-template-columns: auto auto minmax(180px, 1fr) auto;
     gap: ${({ theme }) => theme.space.lg};
   }
 `;
 
 export const Actions = styled.div`
-  display: contents;
-  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: ${({ theme }) => theme.space.xs};
-  grid-column: 4;
+  grid-column: 3;
   grid-row: 1;
-  }
+  justify-self: end;
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { grid-column: 4; }
 `;
 
 export const Preferences = styled.div`
@@ -42,14 +45,12 @@ export const Preferences = styled.div`
 `;
 
 export const Search = styled.div`
-  grid-column: 1 / 3;
-  grid-row: 2;
   min-width: 0;
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { grid-column: 3; grid-row: 1; width: 100%; max-width: 270px; justify-self: center; }
 `;
 
-export const Navigation = styled.nav<{ $open: boolean }>`
-  display: ${({ $open }) => $open ? "flex" : "none"};
+export const Navigation = styled.nav`
+  display: flex;
   flex-direction: column;
   grid-column: 1 / -1;
   gap: ${({ theme }) => theme.space.sm};
@@ -70,14 +71,15 @@ export const Navigation = styled.nav<{ $open: boolean }>`
 `;
 
 export const MenuButton = styled.button`
-  grid-column: 3;
+  grid-column: 1;
   grid-row: 1;
+  justify-self: start;
   display: inline-grid;
   place-items: center;
   min-width: 44px;
   min-height: 44px;
   padding: 0;
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  border: 0;
   border-radius: ${({ theme }) => theme.radius.control};
   background: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.text};
@@ -86,8 +88,6 @@ export const MenuButton = styled.button`
 `;
 
 export const Cart = styled.span`
-  grid-column: 3;
-  grid-row: 2;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -99,6 +99,44 @@ export const Cart = styled.span`
     margin-inline-end: ${({ theme }) => theme.space.sm};
   }
   color: ${({ theme }) => theme.colors.text};
+`;
+
+export const DesktopLanguage = styled.div`
+  display: none;
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { display: block; }
+`;
+
+export const Sidebar = styled.dialog`
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+  width: min(320px, 88vw);
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: ${({ theme }) => theme.space.md};
+  border: 0;
+  background: ${({ theme }) => theme.colors.surface};
+  color: ${({ theme }) => theme.colors.text};
+  direction: ltr;
+  html[dir="rtl"] & { direction: rtl; }
+  &[open] { display: flex; flex-direction: column; gap: ${({ theme }) => theme.space.md}; overflow-y: auto; }
+  &::backdrop { background: rgb(0 0 0 / 45%); }
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    &, &[open] { display: contents; }
+  }
+`;
+
+export const CloseButton = styled(MenuButton)`
+  align-self: flex-end;
+`;
+
+export const SidebarLanguage = styled.div`
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  padding-block-start: ${({ theme }) => theme.space.md};
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { display: none; }
 `;
 
 export const Badge = styled.span`
