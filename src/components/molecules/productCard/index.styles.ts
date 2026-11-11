@@ -76,3 +76,27 @@ export const AddButton = styled(Button)`
   svg { flex-shrink: 0; }
   &[aria-disabled="true"] { cursor: not-allowed; }
 `;
+
+export const QuantityControl = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: ltr;
+  gap: ${({ theme }) => theme.space.xs};
+  margin-block-start: ${({ theme }) => theme.space.xs};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radius.control};
+  min-width: 0;
+  output { overflow-wrap: anywhere; text-align: center; }
+`;
+
+export const QuantityButton = styled(Button)<{ $remove?: boolean }>`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 44px;
+  padding: ${({ theme }) => theme.space.sm};
+  border: 0;
+  color: ${({ theme, $remove }) => $remove ? theme.colors.danger : theme.colors.text};
+`;

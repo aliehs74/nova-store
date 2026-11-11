@@ -1,5 +1,25 @@
 import styled from "styled-components";
 
+export const Feedback = styled.div`
+  position: fixed;
+  z-index: 20;
+  inset-block-end: ${({ theme }) => theme.space.md};
+  inset-inline: 1rem;
+  width: fit-content;
+  max-width: min(28rem, calc(100% - 2rem));
+  margin-inline: auto;
+  span {
+    display: block;
+    padding: ${({ theme }) => theme.space.md};
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: ${({ theme }) => theme.radius.control};
+    background: ${({ theme }) => theme.colors.surface};
+    color: ${({ theme }) => theme.colors.text};
+    box-shadow: ${({ theme }) => theme.shadow};
+    overflow-wrap: anywhere;
+  }
+`;
+
 export const SectionHeader = styled.div`
   display: flex;
   flex-wrap: wrap;

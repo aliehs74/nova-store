@@ -1,5 +1,10 @@
 {
   "products": {
+    "quantity": "تعداد {title} در سبد خرید",
+    "increaseQuantity": "افزایش تعداد {title}",
+    "decreaseQuantity": "کاهش تعداد {title}",
+    "removeFromCart": "حذف {title} از سبد خرید",
+    "addedToCart": "{title} به سبد خرید اضافه شد.",
     "title": "محصولات منتخب",
     "count": "{count, number} محصول",
     "rating": "امتیاز {rate, number} از ۵، بر اساس {count, number} رأی",

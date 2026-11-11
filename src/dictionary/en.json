@@ -1,5 +1,10 @@
 {
   "products": {
+    "quantity": "Quantity of {title} in cart",
+    "increaseQuantity": "Increase quantity of {title}",
+    "decreaseQuantity": "Decrease quantity of {title}",
+    "removeFromCart": "Remove {title} from cart",
+    "addedToCart": "{title} was added to your cart.",
     "title": "Featured products",
     "count": "{count, plural, one {# product} other {# products}}",
     "rating": "Rated {rate, number} out of 5, based on {count, number} reviews",

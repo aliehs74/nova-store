@@ -10,11 +10,13 @@ import LanguageSwitcher from "@/components/molecules/languageSwitcher";
 import ThemeSwitcher from "@/components/molecules/themeSwitcher";
 import { Header, Inner, Actions, Preferences, Search, Navigation, MenuButton, Cart, Badge } from "./index.styles";
 import type { TStoreHeaderProps } from "./index.types";
+import { useCart } from "@/context/cart";
 
 const StoreHeader = ({ children }: TStoreHeaderProps) => {
   const t = useTranslations("header");
   const common = useTranslations("common");
   const format = useFormatter();
+  const cartCount = useCart((state) => state.items.reduce((total, item) => total + item.quantity, 0));
   const [open, setOpen] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
   const categoryMenu = useRef<HTMLDetailsElement>(null);
@@ -35,9 +37,9 @@ const StoreHeader = ({ children }: TStoreHeaderProps) => {
       <Inner>
         <Logo />
         <Actions>
-          <Cart role="img" aria-label={t("cartCount", { count: 0 })} title={t("cartCount", { count: 0 })}>
+          <Cart role="img" aria-label={t("cartCount", { count: cartCount })} title={t("cartCount", { count: cartCount })}>
             <ShoppingCart size={23} strokeWidth={1.8} aria-hidden="true" focusable="false" />
-            <Badge aria-hidden="true">{format.number(0)}</Badge>
+            <Badge aria-hidden="true">{format.number(cartCount)}</Badge>
           </Cart>
           <Preferences>
             <LanguageSwitcher />
