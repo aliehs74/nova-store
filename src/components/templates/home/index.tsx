@@ -3,13 +3,19 @@ import StoreHeader from "@/components/organisms/storeHeader";
 import { Suspense } from "react";
 import HomeProductsServer from "@/components/organisms/homeProducts/index.server";
 import Hero from "@/components/organisms/home/hero";
+import CategoryProvider from "@/context/category";
+import HeaderCategories from "@/components/organisms/storeHeader/index.categories.server";
 
 const Home = async () => {
   const common = await getTranslations("common");
 
   return (
-    <>
-      <StoreHeader />
+    <CategoryProvider>
+      <StoreHeader>
+        <Suspense fallback={<p role="status">{common("loading")}</p>}>
+          <HeaderCategories />
+        </Suspense>
+      </StoreHeader>
       <main id="storefront">
         <Hero />
         <div id="home-products">
@@ -18,7 +24,7 @@ const Home = async () => {
           </Suspense>
         </div>
       </main>
-    </>
+    </CategoryProvider>
   );
 };
 

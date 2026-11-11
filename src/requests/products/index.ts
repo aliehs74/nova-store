@@ -1,4 +1,5 @@
 import api from "@/api";
+import { cache } from "react";
 import { normalizeApiError } from "@/api/errors";
 import type { TApiResult } from "@/types/api";
 import type { TCategory, TProduct } from "@/types/product";
@@ -16,7 +17,7 @@ export const getProducts = async (): Promise<TApiResult<TProduct[]>> => {
   }
 };
 
-export const getCategories = async (): Promise<TApiResult<TCategory[]>> => {
+export const getCategories = cache(async (): Promise<TApiResult<TCategory[]>> => {
   if (!process.env.FAKESTORE_API_BASE_URL) return { success: false, error: { code: "configuration" } };
   try {
     const { data } = await api.get<unknown>("/products/categories");
@@ -26,5 +27,5 @@ export const getCategories = async (): Promise<TApiResult<TCategory[]>> => {
   } catch (error) {
     return { success: false, error: normalizeApiError(error) };
   }
-};
+});
 import "server-only";
