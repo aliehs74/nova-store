@@ -8,7 +8,7 @@ import Logo from "@/components/atoms/logo";
 import SearchField from "@/components/molecules/searchField";
 import LanguageSwitcher from "@/components/molecules/languageSwitcher";
 import ThemeSwitcher from "@/components/molecules/themeSwitcher";
-import { Header, Inner, Actions, Search, Navigation, MenuButton, Cart, Badge } from "./index.styles";
+import { Header, Inner, Actions, Preferences, Search, Navigation, MenuButton, Cart, Badge } from "./index.styles";
 import type { TStoreHeaderProps } from "./index.types";
 
 const StoreHeader = ({ children }: TStoreHeaderProps) => {
@@ -39,8 +39,10 @@ const StoreHeader = ({ children }: TStoreHeaderProps) => {
             <ShoppingCart size={23} strokeWidth={1.8} aria-hidden="true" focusable="false" />
             <Badge aria-hidden="true">{format.number(0)}</Badge>
           </Cart>
-          <LanguageSwitcher />
-          <ThemeSwitcher />
+          <Preferences>
+            <LanguageSwitcher />
+            <ThemeSwitcher />
+          </Preferences>
           <MenuButton ref={trigger} type="button" aria-expanded={open} aria-controls="store-navigation" aria-label={t(open ? "closeMenu" : "openMenu")} onClick={() => setOpen(!open)}>
             {open ? <X size={21} strokeWidth={1.8} aria-hidden="true" focusable="false" /> : <Menu size={21} strokeWidth={1.8} aria-hidden="true" focusable="false" />}
           </MenuButton>
