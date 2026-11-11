@@ -1,4 +1,5 @@
 {
+  "themeSwitcher": { "light": "Switch to light theme", "dark": "Switch to dark theme" },
   "common": { "home": "Home", "products": "Products", "categories": "Categories", "cart": "Shopping cart", "addToCart": "Add to cart", "viewProducts": "View products", "retry": "Try again", "clear": "Clear", "loading": "Loading…", "error": "Unable to load information.", "empty": "No products available.", "noResults": "No products match your search." },
   "search": { "label": "Search products", "placeholder": "Search by product name…" },
   "categories": { "all": "All products", "electronics": "Electronics", "jewelery": "Jewelry", "men": "Men's clothing", "women": "Women's clothing" },

@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { locales } from "@/i18n";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import font from "@/shared/font";
+import StyleRegistry from "@/shared/styleRegistry";
+import ThemeProvider from "@/context/theme";
+import themeScript from "@/shared/themeScript";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
@@ -22,11 +26,16 @@ const LocaleLayout = async ({ children, params }: LayoutProps<"/[locale]">) => {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"} className={font.variable}>
+    <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"} suppressHydrationWarning className={font.variable}>
       <body>
-        <NextIntlClientProvider locale={locale} messages={{ languageSwitcher: messages.languageSwitcher }}>
+        <Script id="nova-theme-init" strategy="beforeInteractive">{themeScript}</Script>
+        <StyleRegistry>
+        <ThemeProvider>
+        <NextIntlClientProvider locale={locale} messages={{ languageSwitcher: messages.languageSwitcher, themeSwitcher: messages.themeSwitcher }}>
           {children}
         </NextIntlClientProvider>
+        </ThemeProvider>
+        </StyleRegistry>
       </body>
     </html>
   );
