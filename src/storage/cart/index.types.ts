@@ -6,6 +6,9 @@ export type TPersistedCart = { items: TCartItem[] };
 export type TCartState = TPersistedCart & {
   hydrated: boolean;
   finishHydration: () => void;
-  addProduct: (product: TProduct) => boolean;
+  addProduct: (product: TCartProduct) => boolean;
   decreaseProduct: (productId: number) => void;
+  decreaseQuantity: (productId: number) => void;
+  removeProduct: (productId: number) => void;
+  clearCart: () => void;
 };

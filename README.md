@@ -35,6 +35,15 @@ this presentation helper is not an authoritative checkout/accounting engine.
 The basic product list in P4 verifies data delivery; product cards, filters and
 search behavior remain separate later parts.
 
+## Product discovery
+
+The browser filters the received products by title and category, then sorts the
+results and paginates them in groups of six. FakeStoreAPI does not provide real
+page-number pagination. Price sorting uses the API price; title sorting uses
+locale-aware, case-insensitive numeric text comparison. Search is debounced by
+300 ms. Search, category and sort changes return to page one. Clearing filters
+also clears the header search field and restores the default order.
+
 ## Shopping cart
 
 `src/storage/cart` creates a Zustand store per `CartProvider` instance. Adding an
@@ -50,5 +59,9 @@ Server rendering starts with an empty cart. The browser rehydrates after mountin
 then enables add buttons, so early interactions cannot overwrite an unread cart.
 If localStorage is unavailable or full, the cart still works in memory, but changes
 cannot be guaranteed to survive a refresh. Cart prices are display data, not an
-authoritative checkout total. The cart page and checkout are not implemented here.
+authoritative checkout total. The localized cart page supports quantity changes,
+individual removal, clearing all items and an empty state. Decreasing a quantity
+on the cart page stops at one; removal is a separate action. Line totals and the
+overall total are calculated in integer USD cents before display. Checkout is a
+disabled visual control: online payment and order submission remain out of scope.
 

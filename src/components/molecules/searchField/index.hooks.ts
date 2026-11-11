@@ -2,10 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { useSearch } from "@/context/search";
 
 const useProductSearch = () => {
-  const [query, setQuery] = useState("");
   const [composing, setComposing] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const { setSearchTerm } = useSearch();
+  const { query, setQuery, setSearchTerm } = useSearch();
 
   useEffect(
     () => {

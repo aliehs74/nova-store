@@ -35,6 +35,7 @@ const LocaleLayout = async ({ children, params }: LayoutProps<"/[locale]">) => {
             search: messages.search,
             categories: messages.categories,
             products: messages.products,
+            cart: messages.cart,
           }}
         >
           {children}

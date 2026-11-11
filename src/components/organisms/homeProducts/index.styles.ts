@@ -55,6 +55,35 @@ export const Controls = styled.div`
   p { margin: 0; }
 `;
 
+export const SortControl = styled.label`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: ${({ theme }) => theme.space.sm};
+  max-width: 100%;
+  select {
+    min-height: 44px;
+    max-width: 100%;
+    padding: ${({ theme }) => theme.space.sm};
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: ${({ theme }) => theme.radius.control};
+    background: ${({ theme }) => theme.colors.surface};
+    color: ${({ theme }) => theme.colors.text};
+    font: inherit;
+    cursor: pointer;
+  }
+`;
+
+export const EmptyState = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${({ theme }) => theme.space.md};
+  padding-block: ${({ theme }) => theme.space.xl};
+  text-align: center;
+  p { margin: 0; }
+`;
+
 export const Grid = styled.ul`
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -65,5 +94,4 @@ export const Grid = styled.ul`
   > li { min-width: 0; }
   @media (min-width: 480px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  @media (min-width: ${({ theme }) => theme.breakpoints.monitor}) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 `;

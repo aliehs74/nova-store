@@ -8,6 +8,13 @@ export const Switch = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: 999px;
   background: ${({ theme }) => theme.colors.background};
+  @media (max-width: 1023px) {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    button { width: 44px; height: 44px; }
+    button[aria-pressed="true"] { display: none; }
+  }
 `;
 
 export const Option = styled.button`

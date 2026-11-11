@@ -9,6 +9,19 @@ const createCartStore = () => createStore<TCartState>()(
       items: [],
       hydrated: false,
       finishHydration: () => set({ hydrated: true }),
+      decreaseQuantity: (productId) => {
+        const state = get();
+        if (!state.hydrated) return;
+        set({ items: state.items.map((item) => item.product.id === productId
+          ? { ...item, quantity: Math.max(1, item.quantity - 1) } : item) });
+      },
+      removeProduct: (productId) => {
+        if (!get().hydrated) return;
+        set({ items: get().items.filter((item) => item.product.id !== productId) });
+      },
+      clearCart: () => {
+        if (get().hydrated) set({ items: [] });
+      },
       decreaseProduct: (productId) => {
         const state = get();
         if (!state.hydrated) return;

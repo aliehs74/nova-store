@@ -5,7 +5,7 @@ import { useFormatter, useLocale, useTranslations } from "next-intl";
 import ImageWithFallback from "@/components/atoms/imageWithFallback";
 import { formatPrice } from "@/shared/price";
 import getCategoryPresentation from "@/shared/categories";
-import getProductImage from "./index.utils";
+import getProductImage from "@/shared/productImage";
 import { Card, Picture, Content, Category, Rating, Price, AddButton, QuantityControl, QuantityButton } from "./index.styles";
 import type { TProductCardProps } from "./index.types";
 
@@ -23,7 +23,7 @@ const ProductCard = ({ product, customId, quantity, onAddToCart, onDecreaseQuant
         <ImageWithFallback
           src={getProductImage(product.image)}
           alt={product.title}
-          sizes="(max-width: 479px) calc(100vw - 32px), (max-width: 1023px) 50vw, (max-width: 1439px) 33vw, 280px"
+          sizes="(max-width: 479px) calc(100vw - 32px), (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 390px"
         />
       </Picture>
       <Content>
