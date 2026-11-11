@@ -35,6 +35,15 @@ this presentation helper is not an authoritative checkout/accounting engine.
 The basic product list in P4 verifies data delivery; product cards, filters and
 search behavior remain separate later parts.
 
+## Product discovery
+
+The browser filters the received products by title and category, then sorts the
+results and paginates them in groups of six. FakeStoreAPI does not provide real
+page-number pagination. Price sorting uses the API price; title sorting uses
+locale-aware, case-insensitive numeric text comparison. Search is debounced by
+300 ms. Search, category and sort changes return to page one. Clearing filters
+also clears the header search field and restores the default order.
+
 ## Shopping cart
 
 `src/storage/cart` creates a Zustand store per `CartProvider` instance. Adding an
