@@ -14,9 +14,10 @@ export const useSearch = () => {
 
 const SearchProvider = ({ children }: { children: ReactNode }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [query, setQuery] = useState("");
 
   return (
-    <SearchContext.Provider value={{ searchTerm, setSearchTerm }}>
+    <SearchContext.Provider value={{ searchTerm, setSearchTerm, query, setQuery }}>
       {children}
     </SearchContext.Provider>
   );
