@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import type { THomeProductsProps, TProductSort } from "./index.types";
 import Button from "@/components/atoms/button";
+import RetryRequest from "@/components/molecules/retryRequest";
 import Pagination from "@/components/molecules/pagination";
 import CategorySelector from "@/components/molecules/categorySelector";
 import { useCategory } from "@/context/category";
@@ -63,7 +64,7 @@ const HomeProducts = ({ products, categories }: THomeProductsProps) => {
             ) : null}
           </Controls>
         </SectionHeader>
-        {!products.success ? <p role="alert">{t(products.error.code)}</p> : visibleProducts.length === 0 ? (
+        {!products.success ? <EmptyState><p role="alert">{t(products.error.code)}</p><RetryRequest /></EmptyState> : visibleProducts.length === 0 ? (
           <EmptyState>
             <p role="status">{products.data.length === 0 ? t("empty") : common("noResults")}</p>
           </EmptyState>

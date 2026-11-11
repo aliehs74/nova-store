@@ -1,6 +1,7 @@
 "use client";
 
 import { Grid2X2 } from "lucide-react";
+import RetryRequest from "@/components/molecules/retryRequest";
 import { useTranslations } from "next-intl";
 import { useCategory } from "@/context/category";
 import getCategoryPresentation from "@/shared/categories";
@@ -28,7 +29,7 @@ const CategorySelector = ({ categories, customVariant = "chips" }: TCategorySele
             <span>{label ? t(label) : category}</span>
           </Choice>
         );
-      }) : <p role="alert">{api(categories.error.code)}</p>}
+      }) : <div><p role="alert">{api(categories.error.code)}</p><RetryRequest /></div>}
       {categories.success && categories.data.length === 0 ? <p role="status">{t("empty")}</p> : null}
     </Choices>
   );
