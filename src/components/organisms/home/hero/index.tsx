@@ -22,7 +22,7 @@ const Hero = async () => {
         <Image
           src={heroImage}
           alt={t("imageAlt")}
-          sizes="(max-width: 767px) 200vw, (max-width: 1199px) 100vw, 1200px"
+          sizes="(max-width: 1199px) 100vw, 1200px"
           preload
           placeholder="blur"
         />

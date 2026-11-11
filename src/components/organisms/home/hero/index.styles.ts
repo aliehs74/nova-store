@@ -9,6 +9,16 @@ export const Banner = styled.section`
   border-radius: ${({ theme }) => theme.radius.card};
   background: ${({ theme }) => theme.colors.heroSurface};
   margin-block-end: ${({ theme }) => theme.space.xl};
+  min-height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  direction: ltr;
+  @media (max-width: 767px) {
+    margin-inline: calc(-1 * clamp(1rem, 3vw, 2rem));
+    margin-block-start: calc(-1 * clamp(1rem, 3vw, 2rem));
+    border-radius: 0;
+  }
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     min-height: clamp(320px, 30vw, 400px);
     display: flex;
@@ -26,8 +36,8 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 1.5rem;
-  padding-bottom: calc(1.5rem + 62vw);
+  width: 58%;
+  padding: 1rem 0.75rem;
   direction: inherit;
   html[dir="rtl"] & { direction: rtl; }
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
@@ -36,13 +46,13 @@ export const Content = styled.div`
   }
   h1 {
     margin: 0;
-    font-size: clamp(1.6rem, 2.7vw, 2.4rem);
+    font-size: clamp(1.125rem, 2.7vw, 2.4rem);
     line-height: 1.5;
   }
   p {
     margin-block: ${({ theme }) => `${theme.space.sm} ${theme.space.lg}`};
     color: ${({ theme }) => theme.colors.heroMuted};
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    font-size: clamp(0.8rem, 1.5vw, 1.125rem);
   }
 `;
 
@@ -56,6 +66,7 @@ export const ProductsLink = styled.a`
   font-weight: 700;
   &:hover { background: ${({ theme }) => theme.colors.primaryHover}; }
   &:dir(ltr) svg { transform: rotate(180deg); }
+  @media (max-width: 767px) { padding-inline: 0.75rem; font-size: 0.8rem; gap: 0.25rem; }
 `;
 
 export const Media = styled.div`
@@ -68,9 +79,11 @@ export const Media = styled.div`
     bottom: 0;
     left: 0;
     display: block;
-    width: 200%;
+    width: 100%;
     max-width: none;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: 30% center;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     img { width: 100%; height: 100%; object-fit: cover; object-position: left center; }
