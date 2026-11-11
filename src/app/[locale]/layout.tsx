@@ -31,7 +31,7 @@ const LocaleLayout = async ({ children, params }: LayoutProps<"/[locale]">) => {
         <Script id="nova-theme-init" strategy="beforeInteractive">{themeScript}</Script>
         <StyleRegistry>
         <ThemeProvider>
-        <NextIntlClientProvider locale={locale} messages={{ languageSwitcher: messages.languageSwitcher, themeSwitcher: messages.themeSwitcher, api: messages.api }}>
+        <NextIntlClientProvider locale={locale} messages={{ languageSwitcher: messages.languageSwitcher, themeSwitcher: messages.themeSwitcher, api: messages.api, header: messages.header, common: messages.common, search: messages.search, categories: messages.categories }}>
           {children}
         </NextIntlClientProvider>
         </ThemeProvider>
