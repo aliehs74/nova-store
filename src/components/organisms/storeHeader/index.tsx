@@ -9,21 +9,26 @@ import SearchField from "@/components/molecules/searchField";
 import LanguageSwitcher from "@/components/molecules/languageSwitcher";
 import ThemeSwitcher from "@/components/molecules/themeSwitcher";
 import { Header, Inner, Actions, Search, Navigation, MenuButton, Cart, Badge } from "./index.styles";
+import type { TStoreHeaderProps } from "./index.types";
 
-const StoreHeader = () => {
+const StoreHeader = ({ children }: TStoreHeaderProps) => {
   const t = useTranslations("header");
   const common = useTranslations("common");
   const format = useFormatter();
-  const categories = useTranslations("categories");
   const [open, setOpen] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
+  const categoryMenu = useRef<HTMLDetailsElement>(null);
   const closeMenu = () => setOpen(false);
 
   return (
     <Header
       id="store-header"
       onKeyDown={(event) => {
-        if (event.key === "Escape" && open) { closeMenu(); trigger.current?.focus(); }
+        if (event.key !== "Escape") return;
+        if (categoryMenu.current?.open) {
+          categoryMenu.current.open = false;
+          categoryMenu.current.querySelector("summary")?.focus();
+        } else if (open) { closeMenu(); trigger.current?.focus(); }
       }}
       onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) closeMenu(); }}
     >
@@ -44,12 +49,16 @@ const StoreHeader = () => {
         <Navigation id="store-navigation" aria-label={t("navigation")} $open={open}>
           <Link href="/" onClick={closeMenu}>{common("home")}</Link>
           <a href="#home-products" onClick={closeMenu}>{common("products")}</a>
-          <details id="header-categories">
+          <details ref={categoryMenu} id="header-categories">
             <summary>{common("categories")}</summary>
-            <div>
-              {["electronics", "jewelery", "men", "women"].map((category) => (
-                <a key={category} href="#home-products" onClick={closeMenu}>{categories(category)}</a>
-              ))}
+            <div onClick={(event) => {
+              if (!(event.target instanceof Element) || !event.target.closest("button")) return;
+              if (categoryMenu.current) categoryMenu.current.open = false;
+              if (window.matchMedia("(min-width: 1024px)").matches) categoryMenu.current?.querySelector("summary")?.focus();
+              else { closeMenu(); trigger.current?.focus(); }
+              document.getElementById("home-products")?.scrollIntoView();
+            }}>
+              {children}
             </div>
           </details>
         </Navigation>
