@@ -9,6 +9,13 @@ export const Choices = styled.div<{ $variant: "chips" | "menu" }>`
   min-width: 0;
   margin-block-end: ${({ theme, $variant }) => $variant === "chips" ? theme.space.xl : "0"};
   p { margin: 0; flex-basis: 100%; color: ${({ theme }) => theme.colors.muted}; }
+  @media (max-width: 767px) {
+    ${({ $variant, theme }) => $variant === "chips" ? `
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      > button { flex-direction: column; min-height: 80px; padding: ${theme.space.sm}; border-radius: ${theme.radius.card}; }
+    ` : ""}
+  }
 `;
 
 export const Choice = styled.button`
