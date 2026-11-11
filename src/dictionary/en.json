@@ -1,4 +1,5 @@
 {
+  "api": { "products": "Products", "empty": "No products available.", "configuration": "The store service is not configured.", "timeout": "The request timed out. Reload the page to try again.", "network": "Unable to connect to the store. Please try again.", "http": "The store service could not complete the request. Please try again.", "invalidResponse": "The store returned invalid information.", "unknown": "Unable to load information. Please try again." },
   "themeSwitcher": { "light": "Switch to light theme", "dark": "Switch to dark theme" },
   "common": { "home": "Home", "products": "Products", "categories": "Categories", "cart": "Shopping cart", "addToCart": "Add to cart", "viewProducts": "View products", "retry": "Try again", "clear": "Clear", "loading": "Loading…", "error": "Unable to load information.", "empty": "No products available.", "noResults": "No products match your search." },
   "search": { "label": "Search products", "placeholder": "Search by product name…" },
