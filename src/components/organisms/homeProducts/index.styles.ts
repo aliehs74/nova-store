@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const LoadingArea = styled.div`
+  min-height: 65rem;
+  padding: ${({ theme }) => theme.space.lg};
+  border-radius: ${({ theme }) => theme.radius.card};
+  background: ${({ theme }) => theme.colors.surface};
+  @media (min-width: 480px) { min-height: 85rem; }
+  @media (min-width: 1024px) { min-height: 58rem; }
+`;
+
 export const Feedback = styled.div`
   position: fixed;
   z-index: 20;
