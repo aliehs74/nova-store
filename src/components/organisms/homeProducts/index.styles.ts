@@ -93,4 +93,5 @@ export const Grid = styled.ul`
   list-style: none;
   > li { min-width: 0; }
   @media (min-width: 480px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 `;

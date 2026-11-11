@@ -23,7 +23,7 @@ const ProductCard = ({ product, customId, quantity, onAddToCart, onDecreaseQuant
         <ImageWithFallback
           src={getProductImage(product.image)}
           alt={product.title}
-          sizes="(max-width: 479px) calc(100vw - 32px), (max-width: 1279px) 50vw, 592px"
+          sizes="(max-width: 479px) calc(100vw - 32px), (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 390px"
         />
       </Picture>
       <Content>
