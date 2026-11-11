@@ -1,5 +1,21 @@
 {
   "products": {
+    "clearFilters": "Clear filters",
+    "sort": {
+      "label": "Sort by",
+      "default": "Default order",
+      "priceAsc": "Price: low to high",
+      "priceDesc": "Price: high to low",
+      "titleAsc": "Title: A to Z",
+      "titleDesc": "Title: Z to A"
+    },
+    "pagination": {
+      "label": "Product pages",
+      "previous": "Previous page",
+      "next": "Next page",
+      "page": "Page {page, number}",
+      "summary": "Page {page, number} of {pages, number}"
+    },
     "quantity": "Quantity of {title} in cart",
     "increaseQuantity": "Increase quantity of {title}",
     "decreaseQuantity": "Decrease quantity of {title}",

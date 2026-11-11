@@ -1,5 +1,21 @@
 {
   "products": {
+    "clearFilters": "پاک‌کردن فیلترها",
+    "sort": {
+      "label": "مرتب‌سازی بر اساس",
+      "default": "ترتیب پیش‌فرض",
+      "priceAsc": "قیمت: کم به زیاد",
+      "priceDesc": "قیمت: زیاد به کم",
+      "titleAsc": "عنوان: صعودی",
+      "titleDesc": "عنوان: نزولی"
+    },
+    "pagination": {
+      "label": "صفحه‌های محصولات",
+      "previous": "صفحه قبلی",
+      "next": "صفحه بعدی",
+      "page": "صفحه {page, number}",
+      "summary": "صفحه {page, number} از {pages, number}"
+    },
     "quantity": "تعداد {title} در سبد خرید",
     "increaseQuantity": "افزایش تعداد {title}",
     "decreaseQuantity": "کاهش تعداد {title}",
