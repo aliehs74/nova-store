@@ -1,4 +1,9 @@
 {
+  "hero": {
+    "title": "Smart choices, easy shopping",
+    "description": "Discover everyday favorites and enjoy a fresh shopping experience with NOVA.",
+    "imageAlt": "Wireless headphones, a smartwatch and a sneaker on light display stands"
+  },
   "header": {
     "homeLabel": "NOVA home",
     "navigation": "Main navigation",
