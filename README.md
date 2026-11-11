@@ -59,5 +59,9 @@ Server rendering starts with an empty cart. The browser rehydrates after mountin
 then enables add buttons, so early interactions cannot overwrite an unread cart.
 If localStorage is unavailable or full, the cart still works in memory, but changes
 cannot be guaranteed to survive a refresh. Cart prices are display data, not an
-authoritative checkout total. The cart page and checkout are not implemented here.
+authoritative checkout total. The localized cart page supports quantity changes,
+individual removal, clearing all items and an empty state. Decreasing a quantity
+on the cart page stops at one; removal is a separate action. Line totals and the
+overall total are calculated in integer USD cents before display. Checkout is a
+disabled visual control: online payment and order submission remain out of scope.
 
