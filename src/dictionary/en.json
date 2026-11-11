@@ -1,4 +1,16 @@
 {
+  "cart": {
+    "title": "Shopping cart",
+    "items": "Selected products",
+    "empty": "Your shopping cart is empty.",
+    "continueShopping": "Continue shopping",
+    "unitPrice": "Unit price:",
+    "lineTotal": "Line total for {title}",
+    "clear": "Empty shopping cart",
+    "total": "Total",
+    "checkout": "Checkout",
+    "checkoutNote": "Online payment and order submission are not available in this demo."
+  },
   "products": {
     "clearFilters": "Clear filters",
     "sort": {
