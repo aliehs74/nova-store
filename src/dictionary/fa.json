@@ -1,8 +1,60 @@
 {
-  "themeSwitcher": { "light": "فعال‌کردن تم روشن", "dark": "فعال‌کردن تم تیره" },
-  "common": { "home": "خانه", "products": "محصولات", "categories": "دسته‌بندی‌ها", "cart": "سبد خرید", "addToCart": "افزودن به سبد", "viewProducts": "مشاهده محصولات", "retry": "تلاش مجدد", "clear": "پاک کردن", "loading": "در حال بارگذاری…", "error": "دریافت اطلاعات انجام نشد.", "empty": "محصولی موجود نیست.", "noResults": "محصولی با این مشخصات پیدا نشد." },
-  "search": { "label": "جست‌وجوی محصولات", "placeholder": "نام محصول را جست‌وجو کنید…" },
-  "categories": { "all": "همه محصولات", "electronics": "الکترونیک", "jewelery": "زیورآلات", "men": "پوشاک مردانه", "women": "پوشاک زنانه" },
-  "home": { "title": "فروشگاه نوا", "description": "انتخاب هوشمندانه، خرید آسان" },
-  "languageSwitcher": { "label": "Switch to English", "target": "English" }
+  "header": {
+    "homeLabel": "صفحه اصلی نوا",
+    "navigation": "منوی اصلی",
+    "openMenu": "باز کردن منو",
+    "closeMenu": "بستن منو",
+    "cartCount": "سبد خرید: {count, number} کالا"
+  },
+  "api": {
+    "products": "محصولات",
+    "empty": "محصولی موجود نیست.",
+    "configuration": "تنظیمات سرویس فروشگاه کامل نیست.",
+    "timeout": "زمان دریافت اطلاعات تمام شد؛ دوباره صفحه را بارگذاری کنید.",
+    "network": "ارتباط با فروشگاه برقرار نشد؛ دوباره تلاش کنید.",
+    "http": "سرویس فروشگاه پاسخ موفق نداد؛ دوباره تلاش کنید.",
+    "invalidResponse": "اطلاعات دریافتی فروشگاه معتبر نیست.",
+    "unknown": "دریافت اطلاعات انجام نشد؛ دوباره تلاش کنید."
+  },
+  "themeSwitcher": {
+    "light": "فعال‌کردن تم روشن",
+    "dark": "فعال‌کردن تم تیره"
+  },
+  "common": {
+    "home": "خانه",
+    "products": "محصولات",
+    "categories": "دسته‌بندی‌ها",
+    "cart": "سبد خرید",
+    "addToCart": "افزودن به سبد",
+    "viewProducts": "مشاهده محصولات",
+    "retry": "تلاش مجدد",
+    "clear": "پاک کردن",
+    "loading": "در حال بارگذاری…",
+    "error": "دریافت اطلاعات انجام نشد.",
+    "empty": "محصولی موجود نیست.",
+    "noResults": "محصولی با این مشخصات پیدا نشد."
+  },
+  "search": {
+    "label": "جست‌وجوی محصولات",
+    "placeholder": "نام محصول را جست‌وجو کنید…"
+  },
+  "categories": {
+    "all": "همه محصولات",
+    "electronics": "الکترونیک",
+    "jewelery": "زیورآلات",
+    "men": "پوشاک مردانه",
+    "women": "پوشاک زنانه"
+  },
+  "home": {
+    "title": "فروشگاه نوا",
+    "description": "انتخاب هوشمندانه، خرید آسان"
+  },
+  "languageSwitcher": {
+    "fa": "تغییر زبان به فارسی",
+    "en": "تغییر زبان به انگلیسی",
+    "faCode": "FA",
+    "enCode": "EN",
+    "label": "Switch to English",
+    "target": "English"
+  }
 }

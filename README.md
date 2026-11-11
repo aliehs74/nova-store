@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NOVA Store
 
-## Getting Started
+Public Next.js storefront with Persian/English routing and light/dark themes.
 
-First, run the development server:
+## API configuration
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Copy `.env.example` to `.env.local`, then run `npm install` and `npm run dev`.
+`FAKESTORE_API_BASE_URL` is server-only and must be an absolute HTTP(S) URL.
+The sample points to `https://fakestoreapi.com`. Restart dev after changing it.
+Use `npm run lint`, `npx tsc --noEmit`, and `npm run build` for verification.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`src/api` owns one Axios instance with a ten-second timeout. Request functions
+in `src/requests/products` validate unknown responses and return a discriminated
+success/error result. Raw transport errors are never sent to the browser.
+The server loader starts product/category reads in parallel at request time
+under Suspense; no network call is required during build. The client receives
+validated initial props, without importing Axios or the environment variable.
+Empty results and failures remain distinct; category failure does not discard
+successful products. Reload the page to retry. No automatic retries or cache
+library are introduced.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+FakeStoreAPI is a mock service: writes are not persistent and real page-number
+pagination is unavailable. Later product pagination will use the received array.
+API product titles remain backend content, not fabricated Persian translations.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Price convention
 
-## Learn More
+The observed response has a numeric `price` but no currency field. NOVA explicitly
+uses USD as a display convention in `src/shared/price.ts`, not as a verified API
+currency contract. Prices display two decimal places, comma grouping and dot
+decimal; digits follow the UI locale. No conversion to toman or exchange-rate
+assumption occurs. JSON numbers already have JavaScript precision limitations;
+this presentation helper is not an authoritative checkout/accounting engine.
 
-To learn more about Next.js, take a look at the following resources:
+The basic product list in P4 verifies data delivery; product cards, filters and
+search behavior remain separate later parts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
