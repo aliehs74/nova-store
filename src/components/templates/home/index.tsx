@@ -5,6 +5,8 @@ import HomeProductsServer from "@/components/organisms/homeProducts/index.server
 import Hero from "@/components/organisms/home/hero";
 import { HomeProviders } from "@/context/providers";
 import HeaderCategories from "@/components/organisms/storeHeader/index.categories.server";
+import StoreFooter from "@/components/organisms/storeFooter";
+import ProductsLoading from "@/components/organisms/homeProducts/index.loading";
 
 const Home = async () => {
   const common = await getTranslations("common");
@@ -13,7 +15,7 @@ const Home = async () => {
     <HomeProviders>
       <StoreHeader>
 
-        <Suspense fallback={<p role="status">{common("loading")}</p>}>
+        <Suspense fallback={<p role="status" style={{ minHeight: "15rem" }}>{common("loading")}</p>}>
           <HeaderCategories />
         </Suspense>
       </StoreHeader>
@@ -23,12 +25,13 @@ const Home = async () => {
         <Hero />
 
         <div id="home-products">
-          <Suspense fallback={<p role="status">{common("loading")}</p>}>
+          <Suspense fallback={<ProductsLoading />}>
             <HomeProductsServer />
           </Suspense>
         </div>
 
       </main>
+      <StoreFooter />
     </HomeProviders>
   );
 };
