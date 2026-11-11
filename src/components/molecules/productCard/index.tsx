@@ -5,7 +5,7 @@ import { useFormatter, useLocale, useTranslations } from "next-intl";
 import ImageWithFallback from "@/components/atoms/imageWithFallback";
 import { formatPrice } from "@/shared/price";
 import getCategoryPresentation from "@/shared/categories";
-import getProductImage from "./index.utils";
+import getProductImage from "@/shared/productImage";
 import { Card, Picture, Content, Category, Rating, Price, AddButton, QuantityControl, QuantityButton } from "./index.styles";
 import type { TProductCardProps } from "./index.types";
 
