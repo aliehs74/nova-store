@@ -9,7 +9,7 @@ const HomeProducts = ({ products, categories }: THomeProductsProps) => {
   const locale = useLocale() === "fa" ? "fa" : "en";
 
   return (
-    <section id="home-products" aria-label={t("products")}>
+    <section aria-label={t("products")}>
       <h2>{t("products")}</h2>
       {!categories.success ? <p role="alert">{t(categories.error.code)}</p> : null}
       {!products.success ? <p role="alert">{t(products.error.code)}</p> : products.data.length === 0 ? <p>{t("empty")}</p> : (

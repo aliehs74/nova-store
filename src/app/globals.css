@@ -36,6 +36,7 @@ a {
   color-scheme: light;
   --color-background: #f7f8fa;
   --color-surface: #ffffff;
+  --color-hero-surface: #f0eae2;
   --color-text: #192b43;
   --color-muted: #526176;
   --color-border: #c5ccd6;
@@ -48,6 +49,7 @@ a {
   color-scheme: dark;
   --color-background: #101a29;
   --color-surface: #192b43;
+  --color-hero-surface: #f0eae2;
   --color-text: #f3f5f9;
   --color-muted: #b5c1d1;
   --color-border: #60728a;
