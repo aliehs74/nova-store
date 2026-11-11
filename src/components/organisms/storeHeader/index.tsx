@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Menu, ShoppingCart, X } from "lucide-react";
-import { useFormatter, useTranslations } from "next-intl";
+import { useFormatter, useLocale, useTranslations } from "next-intl";
+import routes from "@/shared/routes";
 import { Link } from "@/shared/navigation";
 import Logo from "@/components/atoms/logo";
 import SearchField from "@/components/molecules/searchField";
@@ -12,7 +13,8 @@ import { Header, Inner, Actions, Preferences, Search, Navigation, MenuButton, Ca
 import type { TStoreHeaderProps } from "./index.types";
 import { useCart } from "@/context/cart";
 
-const StoreHeader = ({ children }: TStoreHeaderProps) => {
+const StoreHeader = ({ children, customVariant = "home" }: TStoreHeaderProps) => {
+  const locale = useLocale() === "fa" ? "fa" : "en";
   const t = useTranslations("header");
   const common = useTranslations("common");
   const format = useFormatter();
@@ -60,7 +62,7 @@ const StoreHeader = ({ children }: TStoreHeaderProps) => {
         </MenuButton>
         <Logo />
         <Actions>
-          <Cart role="img" aria-label={t("cartCount", { count: cartCount })} title={t("cartCount", { count: cartCount })}>
+          <Cart href={routes.cart(locale)} aria-current={customVariant === "cart" ? "page" : undefined} aria-label={t("cartCount", { count: cartCount })} title={t("cartCount", { count: cartCount })}>
             <ShoppingCart size={23} strokeWidth={1.8} aria-hidden="true" focusable="false" />
             <Badge aria-hidden="true">{format.number(cartCount)}</Badge>
           </Cart>
@@ -86,11 +88,12 @@ const StoreHeader = ({ children }: TStoreHeaderProps) => {
         <CloseButton type="button" aria-label={t("closeMenu")} onClick={closeMenu}>
           <X size={22} aria-hidden="true" focusable="false" />
         </CloseButton>
-        <Search><SearchField /></Search>
+        {customVariant === "home" ? <Search><SearchField /></Search> : null}
         <Navigation id="store-navigation" aria-label={t("navigation")}>
           <Link href="/" onClick={closeMenu}>{common("home")}</Link>
-          <a href="#home-products" onClick={closeMenu}>{common("products")}</a>
-          <details ref={categoryMenu} id="header-categories">
+          <a href={customVariant === "home" ? "#home-products" : routes.products(locale)} onClick={closeMenu}>{common("products")}</a>
+          {customVariant === "cart" ? <Cart href={routes.cart(locale)} aria-current="page" onClick={closeMenu}>{common("cart")}</Cart> : null}
+          {children ? <details ref={categoryMenu} id="header-categories">
             <summary>{common("categories")}</summary>
             <div onClick={(event) => {
               if (!(event.target instanceof Element) || !event.target.closest("button")) return;
@@ -101,7 +104,7 @@ const StoreHeader = ({ children }: TStoreHeaderProps) => {
             }}>
               {children}
             </div>
-          </details>
+          </details> : null}
         </Navigation>
         <SidebarLanguage onClick={(event) => { if (event.target instanceof Element && event.target.closest("a")) closeMenu(); }}>
           <LanguageSwitcher />

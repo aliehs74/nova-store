@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 export const Header = styled.header`
   background: ${({ theme }) => theme.colors.surface};
@@ -87,7 +88,7 @@ export const MenuButton = styled.button`
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { display: none !important; }
 `;
 
-export const Cart = styled.span`
+export const Cart = styled(Link)`
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -99,6 +100,7 @@ export const Cart = styled.span`
     margin-inline-end: ${({ theme }) => theme.space.sm};
   }
   color: ${({ theme }) => theme.colors.text};
+  text-decoration: none;
 `;
 
 export const DesktopLanguage = styled.div`
