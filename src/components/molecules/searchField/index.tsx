@@ -1,14 +1,15 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
 import { Field, Control, Clear } from "./index.styles";
+import useProductSearch from "./index.hooks";
 
 const SearchField = () => {
   const t = useTranslations("search");
   const common = useTranslations("common");
-  const [query, setQuery] = useState("");
+  const { query, setQuery, clearSearch, startComposition, endComposition } = useProductSearch();
   const input = useRef<HTMLInputElement>(null);
 
   return (
@@ -21,6 +22,8 @@ const SearchField = () => {
         type="search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
+        onCompositionStart={startComposition}
+        onCompositionEnd={endComposition}
         placeholder={t("placeholder")}
         aria-label={t("label")}
         autoComplete="off"
@@ -30,7 +33,7 @@ const SearchField = () => {
         <Clear
           type="button"
           aria-label={common("clear")}
-          onClick={() => { setQuery(""); input.current?.focus(); }}
+          onClick={() => { clearSearch(); input.current?.focus(); }}
         >
           <X size={16} aria-hidden="true" focusable="false" />
         </Clear>
