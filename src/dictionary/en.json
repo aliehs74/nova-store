@@ -1,4 +1,10 @@
 {
+  "products": {
+    "title": "Featured products",
+    "count": "{count, plural, one {# product} other {# products}}",
+    "rating": "Rated {rate, number} out of 5, based on {count, number} reviews",
+    "addToCart": "Add {title} to shopping cart"
+  },
   "hero": {
     "title": "Smart choices, easy shopping",
     "description": "Discover everyday favorites and enjoy a fresh shopping experience with NOVA.",
@@ -26,6 +32,8 @@
     "dark": "Switch to dark theme"
   },
   "common": {
+    "imageUnavailable": "Image unavailable",
+    "imageUnavailableFor": "Image unavailable for {name}",
     "home": "Home",
     "products": "Products",
     "categories": "Categories",
