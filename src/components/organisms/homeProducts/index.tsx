@@ -5,7 +5,8 @@ import type { THomeProductsProps } from "./index.types";
 import CategorySelector from "@/components/molecules/categorySelector";
 import { useCategory } from "@/context/category";
 import ProductCard from "@/components/molecules/productCard";
-import { SectionHeader, Controls, Grid } from "./index.styles";
+import { SectionHeader, Controls, Grid, Feedback } from "./index.styles";
+import useAddToCart from "./index.hooks";
 import { useSearch } from "@/context/search";
 
 const HomeProducts = ({ products, categories }: THomeProductsProps) => {
@@ -14,6 +15,7 @@ const HomeProducts = ({ products, categories }: THomeProductsProps) => {
   const common = useTranslations("common");
   const { selectedCategory } = useCategory();
   const { searchTerm } = useSearch();
+  const { addToCart, decreaseProduct, items, feedback } = useAddToCart();
   const normalizedSearch = searchTerm.toLowerCase();
   const visibleProducts = products.success ? products.data.filter((product) =>
     (selectedCategory === null || product.category === selectedCategory)
@@ -34,12 +36,21 @@ const HomeProducts = ({ products, categories }: THomeProductsProps) => {
           <Grid role="list">
             {visibleProducts.map((product) => (
               <li key={product.id}>
-                <ProductCard product={product} customId={`product-${product.id}`} />
+                <ProductCard
+                  product={product}
+                  customId={`product-${product.id}`}
+                  quantity={items.find((item) => item.product.id === product.id)?.quantity ?? 0}
+                  onAddToCart={addToCart}
+                  onDecreaseQuantity={decreaseProduct}
+                />
               </li>
             ))}
           </Grid>
         )}
       </section>
+      <Feedback role="status" aria-live="polite" aria-atomic="true">
+        {feedback ? <span>{productText("addedToCart", { title: feedback.title })}</span> : null}
+      </Feedback>
     </>
   );
 };
