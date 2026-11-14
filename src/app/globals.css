@@ -26,7 +26,10 @@ a {
 
 @font-face {
   font-family: "English Digits";
-  src: local("Arial"), local("Tahoma"), url("/fonts/Vazir-Regular-Latin.woff2") format("woff2");
+  src:
+    local("Arial"),
+    local("Tahoma"),
+    url("/fonts/Vazir-Regular-Latin.woff2") format("woff2");
   font-display: swap;
   unicode-range: U+0030-0039;
 }
@@ -100,7 +103,6 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
@@ -113,7 +115,6 @@ p {
 :root[lang="en"] {
   --font-active: "English Digits", var(--font-family-vazir);
 }
-
 
 .language-switcher {
   justify-content: center;

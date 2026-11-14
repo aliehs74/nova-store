@@ -7,7 +7,9 @@ const ProductsLoading = () => {
   const t = useTranslations("common");
 
   return (
-    <LoadingArea role="status" aria-busy="true">{t("loading")}</LoadingArea>
+    <LoadingArea role="status" aria-busy="true">
+      {t("loading")}
+    </LoadingArea>
   );
 };
 

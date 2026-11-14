@@ -6,8 +6,11 @@ import ThemeProvider from "@/context/theme";
 import StyleRegistry from "@/shared/styleRegistry";
 import type { TAppProvidersProps, THomeProvidersProps } from "./index.types";
 
-export const AppProviders = ({ children, locale, messages }: TAppProvidersProps) => {
-
+export const AppProviders = ({
+  children,
+  locale,
+  messages,
+}: TAppProvidersProps) => {
   return (
     <StyleRegistry>
       <ThemeProvider>
@@ -20,7 +23,6 @@ export const AppProviders = ({ children, locale, messages }: TAppProvidersProps)
 };
 
 export const HomeProviders = ({ children }: THomeProvidersProps) => {
-
   return (
     <CategoryProvider>
       <SearchProvider>{children}</SearchProvider>

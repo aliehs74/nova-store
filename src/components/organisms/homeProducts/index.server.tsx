@@ -4,11 +4,12 @@ import HomeProducts from "./index";
 
 const HomeProductsServer = async () => {
   await connection();
-  const [products, categories] = await Promise.all([getProducts(), getCategories()]);
+  const [products, categories] = await Promise.all([
+    getProducts(),
+    getCategories(),
+  ]);
 
-  return (
-    <HomeProducts products={products} categories={categories} />
-  );
+  return <HomeProducts products={products} categories={categories} />;
 };
 
 export default HomeProductsServer;

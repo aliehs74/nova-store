@@ -3,18 +3,25 @@ import styled from "styled-components";
 export const Choices = styled.div<{ $variant: "chips" | "menu" }>`
   display: flex;
   flex-wrap: wrap;
-  justify-content: ${({ $variant }) => $variant === "chips" ? "center" : "flex-start"};
-  flex-direction: ${({ $variant }) => $variant === "menu" ? "column" : "row"};
+  justify-content: ${({ $variant }) => ($variant === "chips" ? "center" : "flex-start")};
+  flex-direction: ${({ $variant }) => ($variant === "menu" ? "column" : "row")};
   gap: ${({ theme }) => theme.space.sm};
   min-width: 0;
-  margin-block-end: ${({ theme, $variant }) => $variant === "chips" ? theme.space.xl : "0"};
-  p { margin: 0; flex-basis: 100%; color: ${({ theme }) => theme.colors.muted}; }
+  margin-block-end: ${({ theme, $variant }) => ($variant === "chips" ? theme.space.xl : "0")};
+  p {
+    margin: 0;
+    flex-basis: 100%;
+    color: ${({ theme }) => theme.colors.muted};
+  }
   @media (max-width: 767px) {
-    ${({ $variant, theme }) => $variant === "chips" ? `
+    ${({ $variant, theme }) =>
+      $variant === "chips"
+        ? `
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       > button { flex-direction: column; min-height: 80px; padding: ${theme.space.sm}; border-radius: ${theme.radius.card}; }
-    ` : ""}
+    `
+        : ""}
   }
 `;
 
@@ -34,9 +41,15 @@ export const Choice = styled.button`
   font: inherit;
   font-size: 0.875rem;
   cursor: pointer;
-  svg { flex-shrink: 0; }
-  span { overflow-wrap: anywhere; }
-  &:hover { border-color: ${({ theme }) => theme.colors.primary}; }
+  svg {
+    flex-shrink: 0;
+  }
+  span {
+    overflow-wrap: anywhere;
+  }
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.primary};
+  }
   &[aria-pressed="true"] {
     background: ${({ theme }) => theme.colors.primary};
     border-color: ${({ theme }) => theme.colors.primary};

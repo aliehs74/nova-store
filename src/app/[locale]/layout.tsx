@@ -3,15 +3,16 @@ import { notFound } from "next/navigation";
 import { locales } from "@/i18n";
 import { getMessages } from "next-intl/server";
 import font from "@/shared/font";
+import siteUrl from "@/shared/site";
 import { AppProviders } from "@/context/providers";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: siteUrl,
   title: "NOVA",
 };
 
 export const generateStaticParams = () => locales.map((locale) => ({ locale }));
-
 
 const LocaleLayout = async ({ children, params }: LayoutProps<"/[locale]">) => {
   const { locale } = await params;
@@ -22,7 +23,12 @@ const LocaleLayout = async ({ children, params }: LayoutProps<"/[locale]">) => {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"} suppressHydrationWarning className={font.variable}>
+    <html
+      lang={locale}
+      dir={locale === "fa" ? "rtl" : "ltr"}
+      suppressHydrationWarning
+      className={font.variable}
+    >
       <body>
         <AppProviders
           locale={locale}

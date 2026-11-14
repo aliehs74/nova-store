@@ -39,7 +39,9 @@ export const Content = styled.div`
   width: 58%;
   padding: 1rem 0.75rem;
   direction: inherit;
-  html[dir="rtl"] & { direction: rtl; }
+  html[dir="rtl"] & {
+    direction: rtl;
+  }
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 54%;
     padding: clamp(1.5rem, 3vw, 3rem);
@@ -64,9 +66,17 @@ export const ProductsLink = styled.a`
   background: ${({ theme }) => theme.colors.primary};
   text-decoration: none;
   font-weight: 700;
-  &:hover { background: ${({ theme }) => theme.colors.primaryHover}; }
-  &:dir(ltr) svg { transform: rotate(180deg); }
-  @media (max-width: 767px) { padding-inline: 0.75rem; font-size: 0.8rem; gap: 0.25rem; }
+  &:hover {
+    background: ${({ theme }) => theme.colors.primaryHover};
+  }
+  &:dir(ltr) svg {
+    transform: rotate(180deg);
+  }
+  @media (max-width: 767px) {
+    padding-inline: 0.75rem;
+    font-size: 0.8rem;
+    gap: 0.25rem;
+  }
 `;
 
 export const Media = styled.div`
@@ -86,6 +96,11 @@ export const Media = styled.div`
     object-position: 30% center;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    img { width: 100%; height: 100%; object-fit: cover; object-position: left center; }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left center;
+    }
   }
 `;

@@ -10,8 +10,11 @@ const dictionaries = {
 };
 
 export default getRequestConfig(async ({ locale }) => {
-  const selectedLocale = locale ?? await rootParams.locale();
+  const selectedLocale = locale ?? (await rootParams.locale());
   if (!hasLocale(locales, selectedLocale)) notFound();
 
-  return { locale: selectedLocale, messages: await dictionaries[selectedLocale]() };
+  return {
+    locale: selectedLocale,
+    messages: await dictionaries[selectedLocale](),
+  };
 });

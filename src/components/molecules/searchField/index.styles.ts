@@ -11,9 +11,16 @@ export const Field = styled.form`
   border-radius: 999px;
   color: ${({ theme }) => theme.colors.muted};
   background: ${({ theme }) => theme.colors.background};
-  &:focus-within { outline: 2px solid ${({ theme }) => theme.colors.focus}; outline-offset: 2px; }
-  > svg { flex-shrink: 0; }
-  > svg:first-of-type { order: 2; }
+  &:focus-within {
+    outline: 2px solid ${({ theme }) => theme.colors.focus};
+    outline-offset: 2px;
+  }
+  > svg {
+    flex-shrink: 0;
+  }
+  > svg:first-of-type {
+    order: 2;
+  }
 `;
 
 export const Control = styled.input`
@@ -26,8 +33,12 @@ export const Control = styled.input`
   color: ${({ theme }) => theme.colors.text};
   background: transparent;
   font: inherit;
-  &::placeholder { color: ${({ theme }) => theme.colors.muted}; }
-  &::-webkit-search-cancel-button { appearance: none; }
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.muted};
+  }
+  &::-webkit-search-cancel-button {
+    appearance: none;
+  }
 `;
 
 export const Clear = styled.button`

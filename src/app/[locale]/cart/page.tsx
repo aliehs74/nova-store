@@ -4,14 +4,14 @@ import Cart from "@/components/templates/cart";
 export const generateMetadata = async () => {
   const t = await getTranslations("cart");
 
-  return { title: `${t("title")} | NOVA`, robots: { index: false, follow: true } };
+  return {
+    title: `${t("title")} | NOVA`,
+    robots: { index: false, follow: true },
+  };
 };
 
 const CartPage = () => {
-
-  return (
-    <Cart />
-  );
+  return <Cart />;
 };
 
 export default CartPage;

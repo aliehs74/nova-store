@@ -8,7 +8,14 @@ const cartStorage: PersistStorage<TPersistedCart> = {
       const raw = localStorage.getItem(name);
       if (!raw) return null;
       const value: unknown = JSON.parse(raw);
-      if (!value || typeof value !== "object" || !("version" in value) || value.version !== 1 || !("state" in value)) return null;
+      if (
+        !value ||
+        typeof value !== "object" ||
+        !("version" in value) ||
+        value.version !== 1 ||
+        !("state" in value)
+      )
+        return null;
 
       return { version: 1, state: { items: readCartItems(value.state) } };
     } catch {
@@ -16,10 +23,14 @@ const cartStorage: PersistStorage<TPersistedCart> = {
     }
   },
   setItem: (name, value) => {
-    try { localStorage.setItem(name, JSON.stringify(value)); } catch {}
+    try {
+      localStorage.setItem(name, JSON.stringify(value));
+    } catch {}
   },
   removeItem: (name) => {
-    try { localStorage.removeItem(name); } catch {}
+    try {
+      localStorage.removeItem(name);
+    } catch {}
   },
 };
 

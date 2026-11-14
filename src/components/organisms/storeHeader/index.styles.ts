@@ -10,7 +10,9 @@ export const Inner = styled.div`
   display: grid;
   grid-template-columns: minmax(44px, 1fr) auto minmax(88px, 1fr);
   direction: ltr;
-  > a { justify-self: center; }
+  > a {
+    justify-self: center;
+  }
   align-items: center;
   gap: ${({ theme }) => theme.space.sm};
   max-width: ${({ theme }) => theme.contentWidth};
@@ -18,7 +20,9 @@ export const Inner = styled.div`
   padding: ${({ theme }) => theme.space.md};
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
     direction: inherit;
-    > a { justify-self: start; }
+    > a {
+      justify-self: start;
+    }
     grid-template-columns: auto auto minmax(180px, 1fr) auto;
     gap: ${({ theme }) => theme.space.lg};
   }
@@ -32,7 +36,9 @@ export const Actions = styled.div`
   grid-column: 3;
   grid-row: 1;
   justify-self: end;
-  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { grid-column: 4; }
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    grid-column: 4;
+  }
 `;
 
 export const Preferences = styled.div`
@@ -47,7 +53,13 @@ export const Preferences = styled.div`
 
 export const Search = styled.div`
   min-width: 0;
-  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { grid-column: 3; grid-row: 1; width: 100%; max-width: 270px; justify-self: center; }
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    grid-column: 3;
+    grid-row: 1;
+    width: 100%;
+    max-width: 270px;
+    justify-self: center;
+  }
 `;
 
 export const Navigation = styled.nav`
@@ -55,11 +67,32 @@ export const Navigation = styled.nav`
   flex-direction: column;
   grid-column: 1 / -1;
   gap: ${({ theme }) => theme.space.sm};
-  a { padding-inline: 0.75rem; color: ${({ theme }) => theme.colors.text}; text-decoration: none; min-height: 44px; }
-  a:hover { color: ${({ theme }) => theme.colors.primary}; }
-  details { position: relative; }
-  summary { display: flex; align-items: center; min-height: 44px; padding-inline: 0.75rem; cursor: pointer; }
-  details > div { display: grid; padding: ${({ theme }) => theme.space.sm}; background: ${({ theme }) => theme.colors.surface}; border: 1px solid ${({ theme }) => theme.colors.border}; border-radius: ${({ theme }) => theme.radius.control}; }
+  a {
+    padding-inline: 0.75rem;
+    color: ${({ theme }) => theme.colors.text};
+    text-decoration: none;
+    min-height: 44px;
+  }
+  a:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+  details {
+    position: relative;
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 0.75rem;
+    cursor: pointer;
+  }
+  details > div {
+    display: grid;
+    padding: ${({ theme }) => theme.space.sm};
+    background: ${({ theme }) => theme.colors.surface};
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: ${({ theme }) => theme.radius.control};
+  }
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
     display: flex;
     flex-direction: row;
@@ -67,7 +100,13 @@ export const Navigation = styled.nav`
     grid-row: 1;
     gap: 0;
     white-space: nowrap;
-    details > div { position: absolute; inset-inline-start: 0; z-index: 10; min-width: 12rem; box-shadow: ${({ theme }) => theme.shadow}; }
+    details > div {
+      position: absolute;
+      inset-inline-start: 0;
+      z-index: 10;
+      min-width: 12rem;
+      box-shadow: ${({ theme }) => theme.shadow};
+    }
   }
 `;
 
@@ -85,7 +124,9 @@ export const MenuButton = styled.button`
   background: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.text};
   cursor: pointer;
-  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { display: none !important; }
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    display: none !important;
+  }
 `;
 
 export const Cart = styled(Link)`
@@ -105,7 +146,9 @@ export const Cart = styled(Link)`
 
 export const DesktopLanguage = styled.div`
   display: none;
-  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { display: block; }
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    display: block;
+  }
 `;
 
 export const Sidebar = styled.dialog`
@@ -123,11 +166,23 @@ export const Sidebar = styled.dialog`
   background: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.text};
   direction: ltr;
-  html[dir="rtl"] & { direction: rtl; }
-  &[open] { display: flex; flex-direction: column; gap: ${({ theme }) => theme.space.md}; overflow-y: auto; }
-  &::backdrop { background: rgb(0 0 0 / 45%); }
+  html[dir="rtl"] & {
+    direction: rtl;
+  }
+  &[open] {
+    display: flex;
+    flex-direction: column;
+    gap: ${({ theme }) => theme.space.md};
+    overflow-y: auto;
+  }
+  &::backdrop {
+    background: rgb(0 0 0 / 45%);
+  }
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
-    &, &[open] { display: contents; }
+    &,
+    &[open] {
+      display: contents;
+    }
   }
 `;
 
@@ -138,7 +193,9 @@ export const CloseButton = styled(MenuButton)`
 export const SidebarLanguage = styled.div`
   border-top: 1px solid ${({ theme }) => theme.colors.border};
   padding-block-start: ${({ theme }) => theme.space.md};
-  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { display: none; }
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    display: none;
+  }
 `;
 
 export const Badge = styled.span`

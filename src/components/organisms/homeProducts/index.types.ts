@@ -6,4 +6,5 @@ export type THomeProductsProps = {
   categories: TApiResult<TCategory[]>;
 };
 
-export type TProductSort = "default" | "priceAsc" | "priceDesc" | "titleAsc" | "titleDesc";
+export type TProductSort =
+  "default" | "priceAsc" | "priceDesc" | "titleAsc" | "titleDesc";

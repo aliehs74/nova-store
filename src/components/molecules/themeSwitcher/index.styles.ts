@@ -12,8 +12,13 @@ export const Switch = styled.div`
     padding: 0;
     border: 0;
     background: transparent;
-    button { width: 44px; height: 44px; }
-    button[aria-pressed="true"] { display: none; }
+    button {
+      width: 44px;
+      height: 44px;
+    }
+    button[aria-pressed="true"] {
+      display: none;
+    }
   }
 `;
 
@@ -28,6 +33,12 @@ export const Option = styled.button`
   color: ${({ theme }) => theme.colors.text};
   background: transparent;
   cursor: pointer;
-  &[aria-pressed="true"] { color: #fff; background: #14243a; }
-  @media (pointer: coarse) { width: 40px; height: 40px; }
+  &[aria-pressed="true"] {
+    color: #fff;
+    background: #14243a;
+  }
+  @media (pointer: coarse) {
+    width: 40px;
+    height: 40px;
+  }
 `;

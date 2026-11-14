@@ -17,7 +17,15 @@ export const Control = styled.input`
   background: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.text};
   font: inherit;
-  &::placeholder { color: ${({ theme }) => theme.colors.muted}; opacity: 1; }
-  &:disabled { opacity: 0.5; cursor: not-allowed; }
-  &[aria-invalid="true"] { border-width: 2px; }
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.muted};
+    opacity: 1;
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  &[aria-invalid="true"] {
+    border-width: 2px;
+  }
 `;

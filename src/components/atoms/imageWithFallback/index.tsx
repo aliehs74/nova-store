@@ -14,9 +14,18 @@ const ImageWithFallback = ({ src, alt, sizes }: TImageWithFallbackProps) => {
   return (
     <Frame>
       {src && src !== failedSource ? (
-        <Image src={src} alt={alt} fill sizes={sizes} onError={() => setFailedSource(src)} />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          onError={() => setFailedSource(src)}
+        />
       ) : (
-        <Fallback role="img" aria-label={t("imageUnavailableFor", { name: alt })}>
+        <Fallback
+          role="img"
+          aria-label={t("imageUnavailableFor", { name: alt })}
+        >
           <ImageOff size={32} aria-hidden="true" focusable="false" />
           <span>{t("imageUnavailable")}</span>
         </Fallback>

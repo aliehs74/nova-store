@@ -3,7 +3,10 @@ import styled from "styled-components";
 export const Frame = styled.div`
   position: absolute;
   inset: 0;
-  img { object-fit: contain; padding: ${({ theme }) => theme.space.lg}; }
+  img {
+    object-fit: contain;
+    padding: ${({ theme }) => theme.space.lg};
+  }
 `;
 
 export const Fallback = styled.div`

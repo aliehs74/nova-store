@@ -10,7 +10,12 @@ const Logo = () => {
   const t = useTranslations("header");
 
   return (
-    <Brand as={Link} href={routes.home(locale)} aria-label={t("homeLabel")} dir="ltr">
+    <Brand
+      as={Link}
+      href={routes.home(locale)}
+      aria-label={t("homeLabel")}
+      dir="ltr"
+    >
       <span>NOVA</span>
       <Bag iconName="novaBag" />
     </Brand>

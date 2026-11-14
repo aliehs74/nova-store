@@ -5,8 +5,12 @@ export const LoadingArea = styled.div`
   padding: ${({ theme }) => theme.space.lg};
   border-radius: ${({ theme }) => theme.radius.card};
   background: ${({ theme }) => theme.colors.surface};
-  @media (min-width: 480px) { min-height: 85rem; }
-  @media (min-width: 1024px) { min-height: 58rem; }
+  @media (min-width: 480px) {
+    min-height: 85rem;
+  }
+  @media (min-width: 1024px) {
+    min-height: 58rem;
+  }
 `;
 
 export const Feedback = styled.div`
@@ -61,7 +65,9 @@ export const Controls = styled.div`
   gap: ${({ theme }) => theme.space.md};
   color: ${({ theme }) => theme.colors.muted};
   font-size: 0.875rem;
-  p { margin: 0; }
+  p {
+    margin: 0;
+  }
 `;
 
 export const SortControl = styled.label`
@@ -90,7 +96,9 @@ export const EmptyState = styled.div`
   gap: ${({ theme }) => theme.space.md};
   padding-block: ${({ theme }) => theme.space.xl};
   text-align: center;
-  p { margin: 0; }
+  p {
+    margin: 0;
+  }
 `;
 
 export const Grid = styled.ul`
@@ -100,7 +108,13 @@ export const Grid = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
-  > li { min-width: 0; }
-  @media (min-width: 480px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  > li {
+    min-width: 0;
+  }
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 `;

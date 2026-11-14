@@ -14,8 +14,14 @@ export const Language = styled.a`
   min-height: 44px;
   padding-inline: 4px;
   color: ${({ theme }) => theme.colors.muted};
-  font: 600 0.75rem/1 Arial, sans-serif;
+  font:
+    600 0.75rem/1 Arial,
+    sans-serif;
   text-decoration: none;
-  &[aria-current="page"] { color: ${({ theme }) => theme.colors.text}; }
-  span { color: ${({ theme }) => theme.colors.border}; }
+  &[aria-current="page"] {
+    color: ${({ theme }) => theme.colors.text};
+  }
+  span {
+    color: ${({ theme }) => theme.colors.border};
+  }
 `;

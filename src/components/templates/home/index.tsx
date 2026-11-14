@@ -14,14 +14,18 @@ const Home = async () => {
   return (
     <HomeProviders>
       <StoreHeader>
-
-        <Suspense fallback={<p role="status" style={{ minHeight: "15rem" }}>{common("loading")}</p>}>
+        <Suspense
+          fallback={
+            <p role="status" style={{ minHeight: "15rem" }}>
+              {common("loading")}
+            </p>
+          }
+        >
           <HeaderCategories />
         </Suspense>
       </StoreHeader>
 
       <main id="storefront">
-
         <Hero />
 
         <div id="home-products">
@@ -29,7 +33,6 @@ const Home = async () => {
             <HomeProductsServer />
           </Suspense>
         </div>
-
       </main>
       <StoreFooter />
     </HomeProviders>

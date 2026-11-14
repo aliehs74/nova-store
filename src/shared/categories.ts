@@ -1,6 +1,9 @@
 import { Gem, Laptop, Shirt, Tag, type LucideIcon } from "lucide-react";
 
-const categoryPresentation: Record<string, { label: string; Icon: LucideIcon }> = {
+const categoryPresentation: Record<
+  string,
+  { label: string; Icon: LucideIcon }
+> = {
   electronics: { label: "electronics", Icon: Laptop },
   jewelery: { label: "jewelery", Icon: Gem },
   "men's clothing": { label: "men", Icon: Shirt },
@@ -8,6 +11,8 @@ const categoryPresentation: Record<string, { label: string; Icon: LucideIcon }> 
 };
 
 const getCategoryPresentation = (category: string) =>
-  Object.hasOwn(categoryPresentation, category) ? categoryPresentation[category] : { label: null, Icon: Tag };
+  Object.hasOwn(categoryPresentation, category)
+    ? categoryPresentation[category]
+    : { label: null, Icon: Tag };
 
 export default getCategoryPresentation;

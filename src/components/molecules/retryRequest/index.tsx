@@ -11,7 +11,10 @@ const RetryRequest = () => {
   const t = useTranslations("common");
 
   return (
-    <Button disabled={pending} onClick={() => startTransition(() => router.refresh())}>
+    <Button
+      disabled={pending}
+      onClick={() => startTransition(() => router.refresh())}
+    >
       {t(pending ? "loading" : "retry")}
     </Button>
   );

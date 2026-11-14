@@ -1,5 +1,9 @@
 # NOVA Store
 
+## Search metadata
+
+Set `SITE_URL` to the deployed storefront origin before building for production. The development fallback is `http://localhost:3000`; it must not be used as the published canonical origin. Home pages provide localized titles, descriptions, Open Graph metadata, self-referencing canonical URLs and reciprocal Persian/English hreflang alternates. `/sitemap.xml` lists the two public home pages with language alternates. `/robots.txt` allows crawling and points to that sitemap. Cart pages retain `noindex` and are omitted from the sitemap; crawling remains allowed so search engines can read their noindex directive.
+
 Public Next.js storefront with Persian/English routing and light/dark themes.
 
 ## API configuration

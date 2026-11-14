@@ -9,13 +9,21 @@ import useProductSearch from "./index.hooks";
 const SearchField = () => {
   const t = useTranslations("search");
   const common = useTranslations("common");
-  const { query, setQuery, clearSearch, startComposition, endComposition } = useProductSearch();
+  const { query, setQuery, clearSearch, startComposition, endComposition } =
+    useProductSearch();
   const input = useRef<HTMLInputElement>(null);
 
   return (
     <Field role="search" onSubmit={(event) => event.preventDefault()}>
-      <label htmlFor="header-product-search" className="sr-only">{t("label")}</label>
-      <Search size={19} strokeWidth={1.8} aria-hidden="true" focusable="false" />
+      <label htmlFor="header-product-search" className="sr-only">
+        {t("label")}
+      </label>
+      <Search
+        size={19}
+        strokeWidth={1.8}
+        aria-hidden="true"
+        focusable="false"
+      />
       <Control
         ref={input}
         id="header-product-search"
@@ -33,7 +41,10 @@ const SearchField = () => {
         <Clear
           type="button"
           aria-label={common("clear")}
-          onClick={() => { clearSearch(); input.current?.focus(); }}
+          onClick={() => {
+            clearSearch();
+            input.current?.focus();
+          }}
         >
           <X size={16} aria-hidden="true" focusable="false" />
         </Clear>

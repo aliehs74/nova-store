@@ -26,9 +26,19 @@ export const Row = styled.li`
   align-items: center;
   gap: ${({ theme }) => theme.space.md};
   padding: ${({ theme }) => theme.space.md};
-  & + & { border-block-start: 1px solid ${({ theme }) => theme.colors.border}; }
-  h2 { margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
-  p { margin: 0.5rem 0 0; color: ${({ theme }) => theme.colors.muted}; font-size: 0.875rem; }
+  & + & {
+    border-block-start: 1px solid ${({ theme }) => theme.colors.border};
+  }
+  h2 {
+    margin: 0;
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+  }
+  p {
+    margin: 0.5rem 0 0;
+    color: ${({ theme }) => theme.colors.muted};
+    font-size: 0.875rem;
+  }
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 104px minmax(0, 1fr) auto minmax(130px, auto) 44px;
     padding: ${({ theme }) => theme.space.lg};
@@ -53,8 +63,13 @@ export const Quantity = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radius.control};
   width: fit-content;
-  output { min-width: 2ch; text-align: center; }
-  @media (max-width: 767px) { grid-column: 1 / -1; }
+  output {
+    min-width: 2ch;
+    text-align: center;
+  }
+  @media (max-width: 767px) {
+    grid-column: 1 / -1;
+  }
 `;
 
 export const IconButton = styled(Button)`
@@ -67,13 +82,20 @@ export const IconButton = styled(Button)`
 `;
 
 export const RemoveButton = styled(IconButton)`
-  && { color: ${({ theme }) => theme.colors.danger}; }
-  @media (max-width: 767px) { grid-column: 2; justify-self: end; }
+  && {
+    color: ${({ theme }) => theme.colors.danger};
+  }
+  @media (max-width: 767px) {
+    grid-column: 2;
+    justify-self: end;
+  }
 `;
 
 export const LineTotal = styled.strong`
   overflow-wrap: anywhere;
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) { text-align: end; }
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    text-align: end;
+  }
 `;
 
 export const Footer = styled.div`
@@ -81,8 +103,16 @@ export const Footer = styled.div`
   gap: ${({ theme }) => theme.space.lg};
   align-items: center;
   margin-block-start: ${({ theme }) => theme.space.xl};
-  > button { display: inline-flex; align-items: center; justify-content: center; gap: ${({ theme }) => theme.space.sm}; justify-self: start; }
-  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) { grid-template-columns: 1fr minmax(280px, 1fr); }
+  > button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: ${({ theme }) => theme.space.sm};
+    justify-self: start;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    grid-template-columns: 1fr minmax(280px, 1fr);
+  }
 `;
 
 export const Summary = styled.section`
@@ -92,9 +122,19 @@ export const Summary = styled.section`
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radius.card};
   background: ${({ theme }) => theme.colors.surface};
-  h2 { margin: 0; font-size: 1rem; }
-  strong { font-size: 1.5rem; overflow-wrap: anywhere; }
-  p { margin: 0; color: ${({ theme }) => theme.colors.muted}; font-size: 0.875rem; }
+  h2 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  strong {
+    font-size: 1.5rem;
+    overflow-wrap: anywhere;
+  }
+  p {
+    margin: 0;
+    color: ${({ theme }) => theme.colors.muted};
+    font-size: 0.875rem;
+  }
 `;
 
 export const Empty = styled.div`
@@ -106,7 +146,9 @@ export const Empty = styled.div`
   text-align: center;
   background: ${({ theme }) => theme.colors.surface};
   border-radius: ${({ theme }) => theme.radius.card};
-  p { margin: 0; }
+  p {
+    margin: 0;
+  }
 `;
 
 export const ContinueLink = styled(Link)`

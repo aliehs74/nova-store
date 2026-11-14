@@ -55,7 +55,11 @@ export const Rating = styled.span`
   gap: ${({ theme }) => theme.space.xs};
   color: ${({ theme }) => theme.colors.muted};
   font-size: 0.875rem;
-  svg { color: ${({ theme }) => theme.colors.rating}; fill: currentColor; flex-shrink: 0; }
+  svg {
+    color: ${({ theme }) => theme.colors.rating};
+    fill: currentColor;
+    flex-shrink: 0;
+  }
 `;
 
 export const Price = styled.p`
@@ -73,8 +77,12 @@ export const AddButton = styled(Button)`
   width: 100%;
   margin-block-start: ${({ theme }) => theme.space.xs};
   font-size: 0.875rem;
-  svg { flex-shrink: 0; }
-  &[aria-disabled="true"] { cursor: not-allowed; }
+  svg {
+    flex-shrink: 0;
+  }
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+  }
 `;
 
 export const QuantityControl = styled.div`
@@ -87,7 +95,10 @@ export const QuantityControl = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radius.control};
   min-width: 0;
-  output { overflow-wrap: anywhere; text-align: center; }
+  output {
+    overflow-wrap: anywhere;
+    text-align: center;
+  }
 `;
 
 export const QuantityButton = styled(Button)<{ $remove?: boolean }>`
@@ -98,5 +109,5 @@ export const QuantityButton = styled(Button)<{ $remove?: boolean }>`
   min-width: 44px;
   padding: ${({ theme }) => theme.space.sm};
   border: 0;
-  color: ${({ theme, $remove }) => $remove ? theme.colors.danger : theme.colors.text};
+  color: ${({ theme, $remove }) => ($remove ? theme.colors.danger : theme.colors.text)};
 `;

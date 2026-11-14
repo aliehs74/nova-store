@@ -6,9 +6,7 @@ const HeaderCategories = async () => {
   await connection();
   const categories = await getCategories();
 
-  return (
-    <CategorySelector categories={categories} customVariant="menu" />
-  );
+  return <CategorySelector categories={categories} customVariant="menu" />;
 };
 
 export default HeaderCategories;

@@ -6,17 +6,14 @@ const useProductSearch = () => {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { query, setQuery, setSearchTerm } = useSearch();
 
-  useEffect(
-    () => {
-      if (composing) return;
-      timer.current = setTimeout(() => setSearchTerm(query.trim()), 300);
+  useEffect(() => {
+    if (composing) return;
+    timer.current = setTimeout(() => setSearchTerm(query.trim()), 300);
 
-      return () => {
-        if (timer.current) clearTimeout(timer.current);
-      };
-    },
-    [query, composing, setSearchTerm],
-  );
+    return () => {
+      if (timer.current) clearTimeout(timer.current);
+    };
+  }, [query, composing, setSearchTerm]);
 
   const clearSearch = () => {
     if (timer.current) clearTimeout(timer.current);
@@ -29,7 +26,13 @@ const useProductSearch = () => {
     setComposing(true);
   };
 
-  return { query, setQuery, clearSearch, startComposition, endComposition: () => setComposing(false) };
+  return {
+    query,
+    setQuery,
+    clearSearch,
+    startComposition,
+    endComposition: () => setComposing(false),
+  };
 };
 
 export default useProductSearch;
